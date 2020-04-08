@@ -54,7 +54,7 @@ docker build -f src/main/docker/Dockerfile.native-distroless -t serrodcal/employ
 
 Then run the container using:
 ```
-docker run -i --rm -p 8080:8080 serrodcal/hello-quarkus-distroless:0.1.0
+docker run -i --rm -p 8080:8080 serrodcal/employees-quarkus-distroless:0.1.0
 ```
 
 ### Testing the application
