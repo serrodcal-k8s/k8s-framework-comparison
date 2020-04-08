@@ -26,14 +26,13 @@ public class EmployeeResource {
     public Uni<Employee> getEmployee(@PathParam("id") Long id) { return service.getEmployee(id); }
 
     @POST
-    public Uni<Response> createEmployee(Employee employee) { return null; }
+    public Uni<Response> createEmployee(Employee employee) { return service.createEmployee(employee); }
 
     @PUT
-    @Path("{id}")
-    public Uni<Response> updateEmployee(@PathParam("id") Long id, Employee employee) { return null; }
+    public Uni<Response> updateEmployee(Employee employee) { return service.updateEmployee(employee); }
 
     @DELETE
     @Path("{id}")
-    public Uni<Response> deleteEmployee(@PathParam("id") Long id) { return null; }
+    public Uni<Response> deleteEmployee(@PathParam("id") Long id) { return service.deleteEmployee(id); }
 
 }
