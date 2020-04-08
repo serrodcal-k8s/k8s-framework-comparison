@@ -6,57 +6,65 @@ import io.vertx.mutiny.pgclient.PgPool;
 import io.vertx.mutiny.sqlclient.Row;
 import io.vertx.mutiny.sqlclient.RowSet;
 import io.vertx.mutiny.sqlclient.Tuple;
+import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.k8s.poc.domain.Employee;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import java.util.stream.StreamSupport;
 
 @ApplicationScoped
 public class EmployeeDao {
 
-    private Long id;
+    @Inject
+    io.vertx.mutiny.pgclient.PgPool client;
 
-    private String name;
+    @Inject
+    @ConfigProperty(name = "myapp.schema.create", defaultValue = "true")
+    boolean schemaCreate;
 
-    public EmployeeDao() {
-        // default constructor.
+    @PostConstruct
+    void config() {
+        if (schemaCreate) {
+            initdb();
+        }
     }
 
-    public EmployeeDao(String name) {
-        this.name = name;
+    private void initdb() {
+        client.query("DROP TABLE IF EXISTS employees")
+                .flatMap(r -> client.query("CREATE TABLE employees (id SERIAL PRIMARY KEY, name TEXT NOT NULL)"))
+                .flatMap(r -> client.query("INSERT INTO employees (name) VALUES ('Lechowsky')"))
+                .flatMap(r -> client.query("INSERT INTO employees (name) VALUES ('Serrodcal')"))
+                .await().indefinitely();
     }
 
-    public EmployeeDao(Long id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
-    public static Multi<Employee> findAll(PgPool client) {
-        return client.query("SELECT id, name FROM fruits ORDER BY name ASC")
+    public Multi<Employee> findAll() {
+        return client.query("SELECT id, name FROM employees")
                 // Create a Multi from the set of rows:
                 .onItem().produceMulti(set -> Multi.createFrom().items(() -> StreamSupport.stream(set.spliterator(), false)))
                 // For each row create a fruit instance
-                .onItem().apply(null);
+                .onItem().apply(EmployeeDao::from);
     }
 
-    public static Uni<Employee> findById(PgPool client, Long id) {
-        return client.preparedQuery("SELECT id, name FROM fruits WHERE id = $1", Tuple.of(id))
+    public Uni<Employee> findById(Long id) {
+        return client.preparedQuery("SELECT id, name FROM employees WHERE id = $1", Tuple.of(id))
                 .onItem().apply(RowSet::iterator)
                 .onItem().apply(iterator -> iterator.hasNext() ? from(iterator.next()) : null);
     }
 
-    public Uni<Long> save(PgPool client) {
-        return client.preparedQuery("INSERT INTO fruits (name) VALUES ($1) RETURNING (id)", Tuple.of(name))
+    public Uni<Long> save(String name) {
+        return client.preparedQuery("INSERT INTO employees (name) VALUES ($1) RETURNING (id)", Tuple.of(name))
                 .onItem().apply(pgRowSet -> pgRowSet.iterator().next().getLong("id"));
     }
 
-    public Uni<Boolean> update(PgPool client) {
-        return client.preparedQuery("UPDATE fruits SET name = $1 WHERE id = $2", Tuple.of(name, id))
+    public Uni<Boolean> update(Long id, String name) {
+        return client.preparedQuery("UPDATE employees SET name = $1 WHERE id = $2", Tuple.of(name, id))
                 .onItem().apply(pgRowSet -> pgRowSet.rowCount() == 1);
     }
 
-    public static Uni<Boolean> delete(PgPool client, Long id) {
-        return client.preparedQuery("DELETE FROM fruits WHERE id = $1", Tuple.of(id))
+    public Uni<Boolean> delete(Long id) {
+        return client.preparedQuery("DELETE FROM employees WHERE id = $1", Tuple.of(id))
                 .onItem().apply(pgRowSet -> pgRowSet.rowCount() == 1);
     }
 

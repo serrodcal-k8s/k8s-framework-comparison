@@ -16,8 +16,7 @@ import javax.ws.rs.core.Response;
 public class EmployeeResource {
 
     @Inject
-    ReactiveEmployeeService service;
-
+    private ReactiveEmployeeService service;
 
     @GET
     public Multi<Employee> getEmployees() { return service.getEmployees(); }
