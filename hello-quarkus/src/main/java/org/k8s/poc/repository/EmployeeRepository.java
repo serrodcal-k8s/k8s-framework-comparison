@@ -25,13 +25,13 @@ public class EmployeeRepository {
     }
 
     public Uni<Response> saveEmployee(Employee employee) {
-        return employeeDao.save(employee.getName())
+        return employeeDao.save(employee.name)
                 .map(id -> Objects.nonNull(id) ? Response.Status.OK : Response.Status.NO_CONTENT)
                 .map(status -> Response.status(status).build());
     }
 
     public Uni<Response> updateEmployee(Employee employee) {
-        return employeeDao.update(employee.getId(), employee.getName())
+        return employeeDao.update(employee.id, employee.name)
                 .map(updated -> updated ? Response.Status.OK : Response.Status.ACCEPTED)
                 .map(status -> Response.status(status).build());
     }
