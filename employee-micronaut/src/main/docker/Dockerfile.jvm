@@ -1,0 +1,4 @@
+FROM adoptopenjdk/openjdk8:jdk8u242-b08-alpine-slim
+COPY target/employees-micronaut-*.jar employees-micronaut.jar
+EXPOSE 8080
+CMD ["java", "-Dmicronaut.server.host=0.0.0.0", "-jar", "employees-micronaut.jar"]

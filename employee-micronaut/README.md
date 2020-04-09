@@ -13,6 +13,20 @@ Be aware that it’s not an _über-jar_ as the dependencies are copied into the 
 
 The application is now runnable using `java -jar target/employee-micronaut-1.0.0.jar`.
 
+## Creating a Docker image
+
+Build the image with:
+```
+docker build -f src/main/docker/Dockerfile.jvm -t serrodcal/employees-micronaut:0.1.0 .
+```
+
+**Note**: Or pull image from Docker Hub: `docker pull serrodcal/employees-micronaut:0.1.0`
+
+Then run the container using:
+```
+docker run -i --rm -p 8080:8080 serrodcal/employees-micronaut:0.1.0
+```
+
 ### Testing the application
 
 Firstly, create a PostgresSQL database with:
