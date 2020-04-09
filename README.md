@@ -2,9 +2,9 @@
 
 We are going to compare three frameworks in Kubernetes:
 
-* [Spring](https://spring.io/) - _/hello-spring_
-* [Micronaut](https://micronaut.io/) - _/hello-micronaut_
-* [Quarkus](https://quarkus.io/) - _/hello-quarkus_
+* [Spring](https://spring.io/) - _/employee-spring_
+* [Micronaut](https://micronaut.io/) - _/employee-micronaut_
+* [Quarkus](https://quarkus.io/) - _/employee-quarkus_
 
 Same project and three flavour, we want to analyse some topics like:
 

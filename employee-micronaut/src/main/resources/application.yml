@@ -1,0 +1,13 @@
+micronaut:
+  application:
+    name: employee-micronaut
+
+vertx:
+  pg:
+   client:
+     port: 5432
+     host: localhost
+     database: micronaut_test
+     user: micronaut_test
+     password: micronaut_test
+     maxSize: 5

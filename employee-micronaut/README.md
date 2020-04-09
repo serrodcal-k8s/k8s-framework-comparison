@@ -1,6 +1,6 @@
-# hello-micronaut project
+# employee-micronaut project
 
-This project uses Micronaut, a modern, JVM-based, full-stack framework for building modular, easily testable microservice 
+This project uses Micronaut, a modern, JVM-based, full-stack framework for building modular, easily testable microservice
 and serverless applications..
 
 If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
@@ -62,7 +62,7 @@ docker run -i --rm -p 8080:8080 serrodcal/employees-quarkus-distroless:0.1.0
 
 Firstly, create a PostgresSQL database with:
 ```
-docker run --ulimit memlock=-1:-1 -it --rm=true --memory-swappiness=0 --name quarkus_test -e POSTGRES_USER=quarkus_test -e POSTGRES_PASSWORD=quarkus_test -e POSTGRES_DB=quarkus_test -p 5432:5432 postgres:10.5
+docker run --ulimit memlock=-1:-1 -it --rm=true --memory-swappiness=0 --name micronaut_test -e POSTGRES_USER=micronaut_test -e POSTGRES_PASSWORD=micronaut_test -e POSTGRES_DB=micronaut_test -p 5432:5432 postgres:10.5
 ```
 
 Once the docker container is up and running, test it with:
