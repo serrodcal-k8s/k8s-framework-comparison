@@ -1,4 +1,4 @@
-package hello.micronaut;
+package org.k8s.poc;
 
 import io.micronaut.runtime.Micronaut;
 

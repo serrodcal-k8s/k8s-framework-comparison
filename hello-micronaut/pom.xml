@@ -3,17 +3,16 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>hello.micronaut</groupId>
-	<artifactId>hello-micronaut</artifactId>
-	<version>0.1</version>
+	<groupId>org.k8s.poc</groupId>
+	<artifactId>employees-micronaut</artifactId>
+	<version>1.0.0</version>
 	<properties>
 		<micronaut.version>1.3.4</micronaut.version>
-		<jdk.version>11</jdk.version>
-		<maven.compiler.target>${jdk.version}</maven.compiler.target>
-		<maven.compiler.source>${jdk.version}</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<exec.mainClass>hello.micronaut.Application</exec.mainClass>
+		<exec.mainClass>org.k8s.poc.Application</exec.mainClass>
 		<maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
 		<maven-failsafe-plugin.version>2.22.2</maven-failsafe-plugin.version>
 	</properties>
@@ -154,9 +153,6 @@
 						<argument>-noverify</argument>
 						<argument>-XX:TieredStopAtLevel=1</argument>
 						<argument>-Dcom.sun.management.jmxremote</argument>
-
-
-
 						<argument>${exec.mainClass}</argument>
 					</arguments>
 				</configuration>

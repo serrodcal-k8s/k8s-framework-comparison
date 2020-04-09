@@ -8,11 +8,9 @@ import org.k8s.poc.repository.EmployeeRepository;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.core.Response;
-import java.util.ArrayList;
-import java.util.List;
 
 @ApplicationScoped
-public class ReactiveEmployeeService {
+public class EmployeeService {
 
     @Inject
     private EmployeeRepository employeeRepository;

@@ -1,6 +1,7 @@
-# hello-quarkus project
+# hello-micronaut project
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+This project uses Micronaut, a modern, JVM-based, full-stack framework for building modular, easily testable microservice 
+and serverless applications..
 
 If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
 
@@ -14,10 +15,10 @@ You can run your application in dev mode that enables live coding using:
 ## Packaging and running the application
 
 The application can be packaged using `./mvnw package`.
-It produces the `employees-quarkus-1.0.0-runner.jar` file in the `/target` directory.
+It produces the `hello-quarkus-1.0.0-runner.jar` file in the `/target` directory.
 Be aware that it’s not an _über-jar_ as the dependencies are copied into the `target/lib` directory.
 
-The application is now runnable using `java -jar target/employees-quarkus-1.0.0-runner.jar`.
+The application is now runnable using `java -jar target/hello-quarkus-1.0.0-runner.jar`.
 
 ## Creating a native executable
 
@@ -25,7 +26,7 @@ You can create a native executable using: `./mvnw package -Pnative`.
 
 Or, if you don't have GraalVM installed, you can run the native executable build in a container using: `./mvnw package -Pnative -Dquarkus.native.container-build=true`.
 
-You can then execute your native executable with: `./target/employees-quarkus-1.0.0-runner`
+You can then execute your native executable with: `./target/hello-quarkus-1.0.0-runner`
 
 If you want to learn more about building native executables, please consult https://quarkus.io/guides/building-native-image-guide.
 

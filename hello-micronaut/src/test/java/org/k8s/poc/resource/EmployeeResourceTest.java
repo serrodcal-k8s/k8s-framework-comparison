@@ -1,4 +1,4 @@
-package hello.micronaut.controller;
+package org.k8s.poc.resource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 import javax.inject.Inject;
 
 @MicronautTest 
-public class HelloControllerTest {
+public class EmployeeResourceTest {
 
     @Inject
     @Client("/")
