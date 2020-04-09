@@ -86,12 +86,3 @@ Content-Type: application/json
 * Connection #0 to host localhost left intact
 [{"id":1,"name":"Lechowsky"},{"id":2,"name":"Serrodcal"}]%    
 ```
-
-## Kubernetes deployment
-
-Deploy the application with:
-```
-kubectl apply -f k8s/
-```
-
-**Note**: Use [Kind](https://kind.sigs.k8s.io/) to create a cluster: `kind create cluster --config k8s/cluster/kind-ha-config.yaml`
