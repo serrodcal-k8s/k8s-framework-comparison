@@ -1,13 +1,22 @@
 package org.k8s.poc.resource;
 
-import io.micronaut.http.MediaType;
-import io.micronaut.http.annotation.*;
-import io.reactivex.Single;
+import java.util.List;
+
+import javax.inject.Inject;
+
 import org.k8s.poc.domain.Employee;
 import org.k8s.poc.service.EmployeeService;
 
-import javax.inject.Inject;
-import java.util.List;
+import io.micronaut.http.HttpResponse;
+import io.micronaut.http.MediaType;
+import io.micronaut.http.annotation.Consumes;
+import io.micronaut.http.annotation.Controller;
+import io.micronaut.http.annotation.Delete;
+import io.micronaut.http.annotation.Get;
+import io.micronaut.http.annotation.Post;
+import io.micronaut.http.annotation.Produces;
+import io.micronaut.http.annotation.Put;
+import io.reactivex.Single;
 
 @Controller("/micronaut/employee")
 @Produces(MediaType.APPLICATION_JSON)
@@ -18,20 +27,27 @@ public class EmployeeResource {
 	private EmployeeService employeeService;
 
 	@Get
-	public Single<List<Employee>> getEmployees() { return employeeService.getEmployees(); }
+	public Single<List<Employee>> getEmployees() {
+		return employeeService.getEmployees();
+	}
 
-	@Get
-	//@Path("{id}")
-	public Single<Employee> getEmployee(@PathParam("id") Long id) { return employeeService.getEmployee(id); }
+	@Get(uri = "/{id}")
+	public Single<Employee> getEmployee(Long id) {
+		return employeeService.getEmployee(id);
+	}
 
-	/*@Post
-	public Single<Response> createEmployee(Employee employee) { return employeeService.createEmployee(employee); }
+	@Post
+	public Single<HttpResponse<?>> createEmployee(Employee employee) {
+		return employeeService.createEmployee(employee);
+	}
 
 	@Put
-	public Single<Response> updateEmployee(Employee employee) { return employeeService.updateEmployee(employee); }
+	public Single<HttpResponse<?>> updateEmployee(Employee employee) {
+		return employeeService.updateEmployee(employee);
+	}
 
-	@Delete
-	//@Path("{id}")
-	public Single<Response> deleteEmployee(@PathParam("id") Long id) { return employeeService.deleteEmployee(id); }
-	 */
+	@Delete(uri = "{id}")
+	public Single<HttpResponse<?>> deleteEmployee(Long id) {
+		return employeeService.deleteEmployee(id);
+	}
 }
