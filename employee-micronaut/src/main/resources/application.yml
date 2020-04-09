@@ -7,7 +7,7 @@ vertx:
    client:
      port: 5432
      host: localhost
-     database: fwcomparison
-     user: test
-     password: test
+     database: micronaut_test
+     user: micronaut_test
+     password: micronaut_test
      maxSize: 5
