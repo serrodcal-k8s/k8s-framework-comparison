@@ -17,9 +17,7 @@ public class EmployeeService {
 
     public Multi<Employee> getEmployees() { return employeeRepository.getEmployees(); }
 
-    public Uni<Employee> getEmployee(Long id) {
-        return employeeRepository.getEmployee(id);
-    }
+    public Uni<Employee> getEmployee(Long id) { return employeeRepository.getEmployee(id); }
 
     public Uni<Response> createEmployee(Employee employee) { return employeeRepository.saveEmployee(employee); }
 

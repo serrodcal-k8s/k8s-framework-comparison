@@ -30,7 +30,7 @@ docker run -i --rm -p 8080:8080 serrodcal/employees-micronaut:0.1.0
 
 Firstly, create a PostgresSQL database with:
 ```
-docker run --ulimit memlock=-1:-1 -it --rm=true --memory-swappiness=0 --name micronaut_test -e POSTGRES_USER=micronaut_test -e POSTGRES_PASSWORD=micronaut_test -e POSTGRES_DB=micronaut_test -p 5432:5432 postgres:10.5
+docker run --ulimit memlock=-1:-1 -it --rm=true --memory-swappiness=0 --name spring_test -e POSTGRES_USER=spring_test -e POSTGRES_PASSWORD=spring_test -e POSTGRES_DB=spring_test -p 5432:5432 postgres:10.5
 ```
 
 Once the docker container is up and running, test it with:
