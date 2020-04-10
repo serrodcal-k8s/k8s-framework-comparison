@@ -6,13 +6,15 @@ import org.k8s.poc.dao.EmployeeDao;
 import org.k8s.poc.domain.Employee;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
 
 @ApplicationScoped
 public class EmployeeRepository {
 
-    @Inject
     private EmployeeDao employeeDao;
+
+    EmployeeRepository(EmployeeDao employeeDao) {
+        this.employeeDao = employeeDao;
+    }
 
     public Multi<Employee> getEmployees() {
         return employeeDao.findAll();

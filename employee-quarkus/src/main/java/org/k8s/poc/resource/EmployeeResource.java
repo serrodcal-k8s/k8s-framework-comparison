@@ -5,7 +5,6 @@ import io.smallrye.mutiny.Uni;
 import org.k8s.poc.domain.Employee;
 import org.k8s.poc.service.EmployeeService;
 
-import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -16,8 +15,11 @@ import java.util.Objects;
 @Consumes(MediaType.APPLICATION_JSON)
 public class EmployeeResource {
 
-    @Inject
     private EmployeeService employeeService;
+
+    EmployeeResource(EmployeeService employeeService) {
+        this.employeeService =  employeeService;
+    }
 
     @GET
     public Multi<Employee> getEmployees() { return employeeService.getEmployees(); }

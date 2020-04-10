@@ -6,13 +6,15 @@ import org.k8s.poc.domain.Employee;
 import org.k8s.poc.repository.EmployeeRepository;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
 
 @ApplicationScoped
 public class EmployeeService {
 
-    @Inject
     private EmployeeRepository employeeRepository;
+
+    EmployeeService(EmployeeRepository employeeRepository) {
+        this.employeeRepository = employeeRepository;
+    }
 
     public Multi<Employee> getEmployees() { return employeeRepository.getEmployees(); }
 
