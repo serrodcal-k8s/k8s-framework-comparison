@@ -17,8 +17,8 @@ public class EmployeeResource {
     private EmployeeService employeeService;
 
     @GetMapping("/spring/employee")
-    public Flux<String> getEmployees() {
-        return Flux.fromStream(Stream.of("Hola"));
+    public Flux<Employee> getEmployees() {
+        return employeeService.getEmployees();
     }
 
     @GetMapping("/spring/employee/{id}")
