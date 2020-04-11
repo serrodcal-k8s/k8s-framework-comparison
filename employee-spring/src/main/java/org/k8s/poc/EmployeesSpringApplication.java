@@ -12,23 +12,4 @@ public class EmployeesSpringApplication {
 		SpringApplication.run(EmployeesSpringApplication.class, args);
 	}
 
-<<<<<<< HEAD
-
-	
-=======
-	@Bean
-  	public PostgresqlConnectionFactory connectionFactory() {
-   		return new PostgresqlConnectionFactory(
-                PostgresqlConnectionConfiguration.builder()
-                .host("localhost")
-                .port(5432)
-                .username("spring_test")
-                .password("spring_test")
-                .database("spring_test")
-                .build());
-  	}
-
->>>>>>> e9f9d7e1928c184dbc366a5f35053133ae4e6b61
-
-
 }
