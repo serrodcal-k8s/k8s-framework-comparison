@@ -1,6 +1,5 @@
 package org.k8s.poc.service;
 
-import io.micronaut.http.HttpResponse;
 import io.reactivex.Single;
 import org.k8s.poc.domain.Employee;
 import org.k8s.poc.repository.EmployeeRepository;
@@ -21,10 +20,10 @@ public class EmployeeService {
         return employeeRepository.getEmployee(id);
     }
 
-    public Single<HttpResponse<?>> createEmployee(Employee employee) { return employeeRepository.saveEmployee(employee); }
+    public Single<Long> createEmployee(Employee employee) { return employeeRepository.saveEmployee(employee); }
 
-    public Single<HttpResponse<?>> updateEmployee(Employee employee) { return employeeRepository.updateEmployee(employee); }
+    public Single<Boolean> updateEmployee(Employee employee) { return employeeRepository.updateEmployee(employee); }
 
-    public Single<HttpResponse<?>> deleteEmployee(Long id) { return employeeRepository.deleteEmployee(id); }
+    public Single<Boolean> deleteEmployee(Long id) { return employeeRepository.deleteEmployee(id); }
 
 }

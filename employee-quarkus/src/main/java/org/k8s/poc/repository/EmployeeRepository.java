@@ -6,15 +6,15 @@ import org.k8s.poc.dao.EmployeeDao;
 import org.k8s.poc.domain.Employee;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import javax.ws.rs.core.Response;
-import java.util.Objects;
 
 @ApplicationScoped
 public class EmployeeRepository {
 
-    @Inject
     private EmployeeDao employeeDao;
+
+    EmployeeRepository(EmployeeDao employeeDao) {
+        this.employeeDao = employeeDao;
+    }
 
     public Multi<Employee> getEmployees() {
         return employeeDao.findAll();
@@ -24,21 +24,9 @@ public class EmployeeRepository {
         return employeeDao.findById(id);
     }
 
-    public Uni<Response> saveEmployee(Employee employee) {
-        return employeeDao.save(employee.name)
-                .map(id -> Objects.nonNull(id) ? Response.Status.OK : Response.Status.NO_CONTENT)
-                .map(status -> Response.status(status).build());
-    }
+    public Uni<Long> saveEmployee(Employee employee) { return employeeDao.save(employee.name); }
 
-    public Uni<Response> updateEmployee(Employee employee) {
-        return employeeDao.update(employee.id, employee.name)
-                .map(updated -> updated ? Response.Status.OK : Response.Status.ACCEPTED)
-                .map(status -> Response.status(status).build());
-    }
+    public Uni<Boolean> updateEmployee(Employee employee) { return employeeDao.update(employee.id, employee.name); }
 
-    public Uni<Response> deleteEmployee(Long id) {
-        return employeeDao.delete(id)
-                .map(deleted -> deleted ? Response.Status.OK : Response.Status.ACCEPTED)
-                .map(status -> Response.status(status).build());
-    }
+    public Uni<Boolean> deleteEmployee(Long id) { return employeeDao.delete(id); }
 }

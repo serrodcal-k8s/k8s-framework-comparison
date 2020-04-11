@@ -1,6 +1,7 @@
 package org.k8s.poc.resource;
 
 import java.util.List;
+import java.util.Objects;
 
 import javax.inject.Inject;
 
@@ -38,16 +39,19 @@ public class EmployeeResource {
 
 	@Post
 	public Single<HttpResponse<?>> createEmployee(Employee employee) {
-		return employeeService.createEmployee(employee);
+		return employeeService.createEmployee(employee)
+				.map(id -> Objects.nonNull(id) ? HttpResponse.ok() : HttpResponse.accepted());
 	}
 
 	@Put
 	public Single<HttpResponse<?>> updateEmployee(Employee employee) {
-		return employeeService.updateEmployee(employee);
+		return employeeService.updateEmployee(employee)
+				.map(updated -> updated ? HttpResponse.ok() : HttpResponse.accepted());
 	}
 
 	@Delete(uri = "{id}")
 	public Single<HttpResponse<?>> deleteEmployee(Long id) {
-		return employeeService.deleteEmployee(id);
+		return employeeService.deleteEmployee(id)
+				.map(deleted -> deleted ? HttpResponse.ok() : HttpResponse.accepted());
 	}
 }

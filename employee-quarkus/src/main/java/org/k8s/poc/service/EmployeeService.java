@@ -6,22 +6,23 @@ import org.k8s.poc.domain.Employee;
 import org.k8s.poc.repository.EmployeeRepository;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import javax.ws.rs.core.Response;
 
 @ApplicationScoped
 public class EmployeeService {
 
-    @Inject
     private EmployeeRepository employeeRepository;
+
+    EmployeeService(EmployeeRepository employeeRepository) {
+        this.employeeRepository = employeeRepository;
+    }
 
     public Multi<Employee> getEmployees() { return employeeRepository.getEmployees(); }
 
     public Uni<Employee> getEmployee(Long id) { return employeeRepository.getEmployee(id); }
 
-    public Uni<Response> createEmployee(Employee employee) { return employeeRepository.saveEmployee(employee); }
+    public Uni<Long> createEmployee(Employee employee) { return employeeRepository.saveEmployee(employee); }
 
-    public Uni<Response> updateEmployee(Employee employee) { return employeeRepository.updateEmployee(employee); }
+    public Uni<Boolean> updateEmployee(Employee employee) { return employeeRepository.updateEmployee(employee); }
 
-    public Uni<Response> deleteEmployee(Long id) { return employeeRepository.deleteEmployee(id); }
+    public Uni<Boolean> deleteEmployee(Long id) { return employeeRepository.deleteEmployee(id); }
 }

@@ -5,6 +5,7 @@ import io.smallrye.mutiny.Uni;
 import io.vertx.mutiny.sqlclient.Row;
 import io.vertx.mutiny.sqlclient.RowSet;
 import io.vertx.mutiny.sqlclient.Tuple;
+import io.vertx.pgclient.PgPool;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.k8s.poc.domain.Employee;
 
@@ -16,8 +17,7 @@ import java.util.stream.StreamSupport;
 @ApplicationScoped
 public class EmployeeDao {
 
-    @Inject
-    io.vertx.mutiny.pgclient.PgPool client;
+    private io.vertx.mutiny.pgclient.PgPool client;
 
     @Inject
     @ConfigProperty(name = "myapp.schema.create", defaultValue = "true")
@@ -36,6 +36,10 @@ public class EmployeeDao {
                 .flatMap(r -> client.query("INSERT INTO employees (name) VALUES ('Lechowsky')"))
                 .flatMap(r -> client.query("INSERT INTO employees (name) VALUES ('Serrodcal')"))
                 .await().indefinitely();
+    }
+
+    EmployeeDao (io.vertx.mutiny.pgclient.PgPool client) {
+        this.client = client;
     }
 
     public Multi<Employee> findAll() {
