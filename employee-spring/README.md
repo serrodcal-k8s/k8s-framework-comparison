@@ -16,14 +16,14 @@ The application is now runnable using `java -jar target/employee-spring-1.0.0.ja
 
 Build the image with:
 ```
-docker build -f src/main/docker/Dockerfile.jvm -t serrodcal/employees-micronaut:0.1.0 .
+docker build -f src/main/docker/Dockerfile.jvm -t serrodcal/employees-spring:0.1.0 .
 ```
 
-**Note**: Or pull image from Docker Hub: `docker pull serrodcal/employees-micronaut:0.1.0`
+**Note**: Or pull image from Docker Hub: `docker pull serrodcal/employees-spring:0.1.0`
 
 Then run the container using:
 ```
-docker run -i --rm -p 8080:8080 serrodcal/employees-micronaut:0.1.0
+docker run -i --rm -p 8080:8080 serrodcal/employees-spring:0.1.0
 ```
 
 ### Testing the application
@@ -35,7 +35,7 @@ docker run --ulimit memlock=-1:-1 -it --rm=true --memory-swappiness=0 --name spr
 
 Once the docker container is up and running, test it with:
 ```
-curl -vi localhost:8080/micronaut/employee
+curl -vi localhost:8080/spring/employee
 *   Trying ::1...
 * TCP_NODELAY set
 * Connected to localhost (::1) port 8080 (#0)
