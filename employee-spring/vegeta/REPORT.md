@@ -26,7 +26,7 @@ We used 4 CPUs for these tests for querying and saving:
 
 * Vegeta JConsole:
 
-![](/images/spring-vegeta-jconsole.png)
+![](https://github.com/serrodcal/k8s-framework-comparison/blob/master/employee-spring/vegeta/images/spring-vegeta-jconsole.png)
 
 ## JMeter
 
@@ -34,4 +34,4 @@ We used 1000 users concurrently for querying:
 
 * Jmeter JConsole:
 
-![](/images/spring-jmeter-jconsole.png)
+![](https://github.com/serrodcal/k8s-framework-comparison/blob/master/employee-spring/vegeta/images/spring-jmeter-jconsole.png)
