@@ -25,8 +25,8 @@ Full report [here](/employee-spring/vegeta/REPORT.md).
 * Response report:
 ```
 Requests      [total, rate, throughput]         3000, 50.02, 50.01
-Duration      [total, attack, wait]             59.989s, 59.975s, 13.354ms
-Latencies     [min, mean, 50, 90, 95, 99, max]  9.253ms, 14.223ms, 13.185ms, 15.703ms, 16.782ms, 21.164ms, 300.85ms
+Duration      [total, attack, wait]             59.984s, 59.98s, 4.027ms
+Latencies     [min, mean, 50, 90, 95, 99, max]  2.271ms, 4.935ms, 4.263ms, 5.405ms, 5.789ms, 7.605ms, 272.2ms
 Bytes In      [total, mean]                     12472054, 4157.35
 Bytes Out     [total, mean]                     25000, 8.33
 Success       [ratio]                           100.00%
@@ -43,9 +43,9 @@ Full report [here](/employee-micronaut/vegeta/REPORT.md).
 * Response report:
 ```
 Requests      [total, rate, throughput]         3000, 50.02, 50.01
-Duration      [total, attack, wait]             59.985s, 59.98s, 5.252ms
-Latencies     [min, mean, 50, 90, 95, 99, max]  2.563ms, 11.621ms, 4.508ms, 6.075ms, 6.704ms, 319.83ms, 894.44ms
-Bytes In      [total, mean]                     12470073, 4156.69
+Duration      [total, attack, wait]             59.987s, 59.981s, 5.38ms
+Latencies     [min, mean, 50, 90, 95, 99, max]  2.67ms, 9.977ms, 4.51ms, 6.194ms, 6.836ms, 199.482ms, 746.414ms
+Bytes In      [total, mean]                     12470582, 4156.86
 Bytes Out     [total, mean]                     25000, 8.33
 Success       [ratio]                           100.00%
 Status Codes  [code:count]                      200:3000  
@@ -61,9 +61,9 @@ Full report [here](/employee-quarkus/vegeta/REPORT.md).
 * Response report:
 ```
 Requests      [total, rate, throughput]         3000, 50.02, 50.01
-Duration      [total, attack, wait]             59.984s, 59.979s, 5.321ms
-Latencies     [min, mean, 50, 90, 95, 99, max]  2.408ms, 5.815ms, 4.433ms, 5.817ms, 6.197ms, 9.463ms, 378.02ms
-Bytes In      [total, mean]                     12472330, 4157.44
+Duration      [total, attack, wait]             59.984s, 59.979s, 4.462ms
+Latencies     [min, mean, 50, 90, 95, 99, max]  2.531ms, 5.835ms, 4.567ms, 5.869ms, 6.345ms, 9.896ms, 375.005ms
+Bytes In      [total, mean]                     12472215, 4157.40
 Bytes Out     [total, mean]                     25000, 8.33
 Success       [ratio]                           100.00%
 Status Codes  [code:count]                      200:3000  

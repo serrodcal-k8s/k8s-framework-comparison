@@ -7,9 +7,9 @@
 * Response report:
 ```
 Requests      [total, rate, throughput]         3000, 50.02, 50.01
-Duration      [total, attack, wait]             59.984s, 59.979s, 5.321ms
-Latencies     [min, mean, 50, 90, 95, 99, max]  2.408ms, 5.815ms, 4.433ms, 5.817ms, 6.197ms, 9.463ms, 378.02ms
-Bytes In      [total, mean]                     12472330, 4157.44
+Duration      [total, attack, wait]             59.984s, 59.979s, 4.462ms
+Latencies     [min, mean, 50, 90, 95, 99, max]  2.531ms, 5.835ms, 4.567ms, 5.869ms, 6.345ms, 9.896ms, 375.005ms
+Bytes In      [total, mean]                     12472215, 4157.40
 Bytes Out     [total, mean]                     25000, 8.33
 Success       [ratio]                           100.00%
 Status Codes  [code:count]                      200:3000  
