@@ -1,5 +1,7 @@
 # Micronaut full report
 
+## Quick summary
+
 * Startup time: 1.334 seconds
 * Artifact size: 18MB
 * Response report:
@@ -13,3 +15,23 @@ Success       [ratio]                           100.00%
 Status Codes  [code:count]                      200:3000  
 Error Set:
 ```
+
+## Vegeta
+
+We used 4 CPUs for these tests for querying and saving:
+
+* Vegeta plot:
+
+![](/images/micronaut-vegeta-plot.png)
+
+* Vegeta JConsole:
+
+![](/images/micronaut-vegeta-jconsole.png)
+
+## JMeter
+
+We used 1000 users concurrently for querying:
+
+* Jmeter JConsole:
+
+![](/images/micronaut-jmeter-jconsole.png)

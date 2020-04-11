@@ -1,5 +1,7 @@
 # Quarkus full report
 
+## Quick summary
+
 * Startup time: 1.026s
 * Artifact size: 282KB
 * Response report:
@@ -13,3 +15,23 @@ Success       [ratio]                           100.00%
 Status Codes  [code:count]                      200:3000  
 Error Set:
 ```
+
+## Vegeta
+
+We used 4 CPUs for these tests for querying and saving:
+
+* Vegeta plot:
+
+![](/images/quarkus-vegeta-plot.png)
+
+* Vegeta JConsole:
+
+![](/images/quarkus-vegeta-jconsole.png)
+
+## JMeter
+
+We used 1000 users concurrently for querying:
+
+* Jmeter JConsole:
+
+![](/images/quarkus-jmeter-jconsole.png)
