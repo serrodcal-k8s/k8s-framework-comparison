@@ -1,10 +1,13 @@
 package org.k8s.poc.dao;
 
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
 @Table("employees")
 public class EmployeeDao {
 
+	@Id
     private Long id;
     private String name;
 

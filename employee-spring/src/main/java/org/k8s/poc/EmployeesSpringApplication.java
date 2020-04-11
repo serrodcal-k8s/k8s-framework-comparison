@@ -1,10 +1,11 @@
 package org.k8s.poc;
 
-import io.r2dbc.postgresql.PostgresqlConnectionConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.r2dbc.repository.config.EnableR2dbcRepositories;
+
+import io.r2dbc.postgresql.PostgresqlConnectionConfiguration;
 import io.r2dbc.postgresql.PostgresqlConnectionFactory;
 
 @SpringBootApplication
@@ -20,11 +21,13 @@ public class EmployeesSpringApplication {
    		return new PostgresqlConnectionFactory(
                 PostgresqlConnectionConfiguration.builder()
                 .host("localhost")
-                .port(5432)
-                .username("spring_test")
-                .password("spring_test")
-                .database("spring_test")
+                .port(5433)
+                .username("springtest")
+                .password("springtest")
+                .database("springtest")
                 .build());
   	}
+	
+
 
 }
