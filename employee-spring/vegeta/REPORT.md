@@ -22,7 +22,7 @@ We used 4 CPUs for these tests for querying and saving:
 
 * Vegeta plot:
 
-![](/images/spring-vegeta-plot.png)
+![](https://github.com/serrodcal/k8s-framework-comparison/blob/master/employee-spring/vegeta/images/spring-vegeta-plot.png)
 
 * Vegeta JConsole:
 
