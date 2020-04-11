@@ -1,6 +1,6 @@
 # employee-spring project
 
-This project uses Spring, ...
+This project uses Spring, is an application framework and inversion of control container for the Java platform
 
 If you want to learn more about Spring, please visit its website: https://spring.io/ .
 
