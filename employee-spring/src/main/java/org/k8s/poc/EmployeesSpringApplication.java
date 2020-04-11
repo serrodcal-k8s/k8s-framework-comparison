@@ -21,13 +21,13 @@ public class EmployeesSpringApplication {
    		return new PostgresqlConnectionFactory(
                 PostgresqlConnectionConfiguration.builder()
                 .host("localhost")
-                .port(5433)
-                .username("springtest")
-                .password("springtest")
-                .database("springtest")
+                .port(5432)
+                .username("spring_test")
+                .password("spring_test")
+                .database("spring_test")
                 .build());
   	}
-	
+
 
 
 }
