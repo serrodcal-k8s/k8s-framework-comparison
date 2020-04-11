@@ -22,11 +22,11 @@ We used 4 CPUs for these tests for querying and saving:
 
 * Vegeta plot:
 
-![](/images/micronaut-vegeta-plot.png)
+![](https://github.com/serrodcal/k8s-framework-comparison/blob/master/employee-micronaut/vegeta/images/micronaut-vegeta-plot.png)
 
 * Vegeta JConsole:
 
-![](/images/micronaut-vegeta-jconsole.png)
+![](https://github.com/serrodcal/k8s-framework-comparison/blob/master/employee-micronaut/vegeta/images/micronaut-vegeta-jconsole.png)
 
 ## JMeter
 
@@ -34,4 +34,4 @@ We used 1000 users concurrently for querying:
 
 * Jmeter JConsole:
 
-![](/images/micronaut-jmeter-jconsole.png)
+![](https://github.com/serrodcal/k8s-framework-comparison/blob/master/employee-micronaut/vegeta/images/micronaut-jmeter-jconsole.png)
