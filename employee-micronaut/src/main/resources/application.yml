@@ -10,4 +10,4 @@ vertx:
      database: micronaut_test
      user: micronaut_test
      password: micronaut_test
-     maxSize: 5
+     maxSize: 500
