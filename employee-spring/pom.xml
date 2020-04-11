@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>org.k8s.poc</groupId>
 	<artifactId>employees-spring</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>employees-spring</name>
 	<description>Demo project for Spring Boot</description>
 
