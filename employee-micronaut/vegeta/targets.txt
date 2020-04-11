@@ -1,0 +1,5 @@
+GET http://localhost:8080/micronaut/employee
+GET http://localhost:8080/micronaut/employee/1
+POST http://localhost:8080/micronaut/employee
+Content-Type: application/json
+@payload.json
